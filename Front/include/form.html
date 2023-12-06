@@ -1,0 +1,43 @@
+<div class="form">
+  <div class="container">
+    <div class="form-wrap">
+      <form @submit.prevent="submitForm" v-if="!ocultarFormulario">
+
+        <div class="form-control">
+          <label for="nombre">Nombre:</label>
+          <input type="text" id="nombre" v-model="formulario.nombre" required>
+        </div>
+
+        <div class="form-control">
+          <label for="celular">Celular:</label>
+          <input type="text" id="celular" v-model="formulario.celular" required>
+        </div>
+
+        <div class="form-control">
+          <label for="correo">Correo:</label>
+          <input type="email" id="correo" v-model="formulario.correo" required>
+        </div>
+
+        <div class="form-control">
+          <label for="direccion">Dirección:</label>
+          <input type="text" id="direccion" v-model="formulario.direccion" required>
+        </div>
+
+        <div class="form-control">
+          <label for="detalles">Detalles:</label>
+          <textarea id="Detalles" v-model="formulario.comentarios" required></textarea>
+        </div>
+        
+        <div class="form-control">
+          <div class="form-control--btn">
+            <button class="btn" type="submit">Enviar</button>
+          </div>
+        </div>
+      </form>
+    
+      <div class="message" v-if="mostrarMensaje">
+        <h2>Hola {{ formulario.nombre }}! Hemos recibido tu solicitud. En breve nos comunicaremos de vuelta contigo!</h2>
+      </div>
+    </div>
+  </div>
+</div>

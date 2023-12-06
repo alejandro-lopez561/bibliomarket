@@ -1,0 +1,35 @@
+.card-books {
+  padding: 60px 0;
+
+  .card-books__single-card {
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
+    border-radius: 5px;
+    width: 100%;
+    max-width: 300px;
+    height: 100%;
+
+    .single-card__title {
+      text-align: center;
+      padding: 15px 0 10px;
+      border-radius: 5px 5px 0 0;
+      background-color: #d2d0d0;
+
+      p {
+        text-transform: uppercase;
+        font-weight: 700;
+        font-size: 14px;
+      }
+    }
+
+    .single-card__image {
+      width: 90%;
+      margin: 0 auto;
+      padding: 15px 0 0;
+
+      img {
+        width: 100%;
+        object-fit: contain;
+      }
+    }
+  }
+}

@@ -1,0 +1,20 @@
+.icon-text {
+  padding: 60px 0;
+  background-color: #f3f3f3;
+  text-align: center;
+
+  @include m768 {
+    padding: 60px 0 70px;
+  }
+
+  .icon-text__card {
+    width: 100%;
+    margin: 0 auto;
+
+    img {
+      width: 100%;
+      max-width: 230px;
+      margin: 0 auto;
+    }
+  }
+}

@@ -1,0 +1,19 @@
+.text-only {
+  padding: 60px 0;
+  text-align: center;
+
+  .text-only__title {
+    margin-bottom: 40px;
+  }
+
+  .text-only__content {
+    width: 100%;
+    max-width: 840px;
+    margin: 0 auto 30px;
+    font-weight: 500;
+    
+    p {
+      line-height: 1.4;
+    }
+  }
+}

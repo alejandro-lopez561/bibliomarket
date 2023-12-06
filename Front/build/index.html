@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BiblioMarket</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+  <!-- Estilos -->
+  <link rel="stylesheet" type="text/css" href="main.css" inline="inline">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;400;500;700&display=swap" rel="stylesheet">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+</head>
+<body>
+  <div id="app" v-cloak>
+    <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark">
+  <div class="container-lg">
+    <a class="navbar-brand" href="#">
+      <img src="bibliomarket-logo.png" alt="" class="d-inline-block align-text-center">
+      BiblioMarket
+    </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+      <div class="navbar-nav">
+        <a class="nav-link active" aria-current="page"
+          id="Home"
+          @click="idUrl('')">
+          Home
+        </a>
+        <a class="nav-link"
+          id="catalogue"
+          @click="idUrl('catalogo')">
+          Catálogo
+        </a>
+        <a class="nav-link"
+          id="requests"
+          @click="idUrl('solicitudes')">
+          Solicitudes
+        </a>
+      </div>
+    </div>
+  </div>
+</nav>
+
+    <div class="home-page" v-if="templatePage=='homePage'">
+      <div class="hero">
+  <div class="container">
+    <div class="hero__title">
+      <h1>
+        {{ contentData.home.title }}
+      </h1>
+      <h2>
+        {{ contentData.home.subtitle }}
+      </h2>
+    </div>
+  </div>
+</div>
+      <div class="image-text">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-6">
+        <div class="image">
+          <img :src="contentData.home.image_text.image" :alt="contentData.home.image_text.imageAlt">
+        </div>
+      </div>
+      <div class="col-lg-6">
+        <div class="text">
+          <p>
+            {{ contentData.home.image_text.content1 }}
+          </p>
+          <p>
+            {{ contentData.home.image_text.content2 }}
+          </p>
+          <p>
+            {{ contentData.home.image_text.content3 }}
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      <div class="icon-text">
+  <div class="container-lg">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="icon-text__title">
+          <h2>
+            {{ contentData.home.icon_text.title }}
+          </h2>
+        </div>
+      </div>
+      <div class="col-md-4" v-for="(item, index) in contentData.home.icon_text.benefits">
+        <div class="icon-text__card">
+          <img :src="item.image" :alt="item.title">
+          <p>
+            {{ item.title }}
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      <div class="text-only">
+  <div class="container">
+    <div class="row">
+      <div class="col-12">
+        <div class="text-only__title">
+          <h2>
+            {{ contentData.home.text_only.title }}
+          </h2>
+        </div>
+        <div class="text-only__content">
+          <p>
+            {{ contentData.home.text_only.description1 }}
+          </p>
+          <p>
+            {{ contentData.home.text_only.description2 }}
+          </p>
+        </div>
+        <div class="text-only__cta">
+          <a class="btn"
+            @click="idUrl('solicitudes')">
+            {{ contentData.home.text_only.cta }}
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    </div>
+    <div class="catalogo" v-if="templatePage=='catalogo'">
+      <div class="hero--catalogue">
+  <div class="container">
+    <div class="hero--catalogue__title">
+      <h1>
+        {{ contentData.catalogue.title }}
+      </h1>
+      <p>
+        {{ contentData.catalogue.description }}
+      </p>
+    </div>
+  </div>
+</div>
+      <div class="card-books">
+  <div class="container-lg">
+    <div class="row">
+      <div class="col-md-4 mb-4 mb-md-5 d-flex justify-content-center" v-for="(item, index) in contentData.catalogue.books">
+        <div class="card-books__single-card">
+          <div class="single-card__title">
+            <p>
+              {{ item.title }}
+            </p>
+          </div>
+          <div class="single-card__image">
+            <img :src="item.image" :alt="item.title">
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    </div>
+    <div class="solicitudes" v-if="templatePage=='solicitudes'">
+      <div class="hero--catalogue hero--requests">
+  <div class="container">
+    <div class="hero--catalogue__title">
+      <h1>
+        {{ contentData.requests.title }}
+      </h1>
+      <p>
+        {{ contentData.requests.subtitle }}
+      </p>
+    </div>
+  </div>
+</div>
+      <div class="form">
+  <div class="container">
+    <div class="form-wrap">
+      <form @submit.prevent="submitForm" v-if="!ocultarFormulario">
+
+        <div class="form-control">
+          <label for="nombre">Nombre:</label>
+          <input type="text" id="nombre" v-model="formulario.nombre" required>
+        </div>
+
+        <div class="form-control">
+          <label for="celular">Celular:</label>
+          <input type="text" id="celular" v-model="formulario.celular" required>
+        </div>
+
+        <div class="form-control">
+          <label for="correo">Correo:</label>
+          <input type="email" id="correo" v-model="formulario.correo" required>
+        </div>
+
+        <div class="form-control">
+          <label for="direccion">Dirección:</label>
+          <input type="text" id="direccion" v-model="formulario.direccion" required>
+        </div>
+
+        <div class="form-control">
+          <label for="detalles">Detalles:</label>
+          <textarea id="Detalles" v-model="formulario.comentarios" required></textarea>
+        </div>
+        
+        <div class="form-control">
+          <div class="form-control--btn">
+            <button class="btn" type="submit">Enviar</button>
+          </div>
+        </div>
+      </form>
+    
+      <div class="message" v-if="mostrarMensaje">
+        <h2>Hola {{ formulario.nombre }}! Hemos recibido tu solicitud. En breve nos comunicaremos de vuelta contigo!</h2>
+      </div>
+    </div>
+  </div>
+</div>
+    </div>
+    <div class="footer">
+  <div class="container-lg">
+    <div class="row">
+      <div class="col-md-6">
+        <div class="footer__logo">
+          <img src="bibliomarket-logo-footer.png" alt="Logo">
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="footer__content">
+          <p class="content-bold">
+            PROCESO DE SOFTWARE PERSONAL - PSP
+          </p>
+          <p>
+            Subgrupo 3
+          </p>
+          <p class="content-bold">
+            Ingeniería de Software - Politécnico Grancolombiano
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+  <script src="./data.js" inline="inline"></script>
+  <!-- JavaScript principal -->
+  <script src="./index.js" inline="inline"></script>
+</body>
+</html>

@@ -1,0 +1,32 @@
+.image-text {
+  padding: 60px 0;
+  color: $black;
+
+  @include m768 {
+    padding: 80px 0;
+  }
+
+  .image {
+    margin: 0 auto 50px;
+    width: 100%;
+    max-width: 500px;
+    box-shadow: 0px 10px 20px 0px rgba(0, 0, 0, 0.20);
+    border-radius: 5px;
+
+    @include m992 {
+      margin: 0 auto;
+    }
+
+    img {
+      width: 100%;
+      object-fit: contain;
+      border-radius: 5px;
+    }
+  }
+
+  .text {
+    p {
+      line-height: 1.4;
+    }
+  }
+}

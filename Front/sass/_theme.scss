@@ -1,0 +1,63 @@
+// Mixins para responsividad
+ @mixin m360  { @media (min-width: 360px)  { @content; } }
+ @mixin m450  { @media (min-width: 450px)  { @content; } }
+ @mixin m576  { @media (min-width: 576px)  { @content; } }
+ @mixin m600  { @media (min-width: 600px)  { @content; } }
+ @mixin m650  { @media (min-width: 650px)  { @content; } }
+ @mixin m768  { @media (min-width: 768px)  { @content; } }
+ @mixin m800  { @media (min-width: 800px)  { @content; } }
+ @mixin m900  { @media (min-width: 900px)  { @content; } }
+ @mixin m992  { @media (min-width: 992px)  { @content; } }
+ @mixin m1200 { @media (min-width: 1200px) { @content; } }
+ @mixin m1400 { @media (min-width: 1400px) { @content; } }
+ @mixin m1800 { @media (min-width: 1800px) { @content; } }
+ @mixin m2200 { @media (min-width: 2200px) { @content; } }
+
+//  Colores
+$black: #000;
+$white: #fff;
+$gray: #212529;
+
+$font_size_base: 16px;
+
+body,
+html {
+  margin: 0;
+	padding: 0;
+	border: 0;
+  height: 100%;
+  font-size: $font_size_base;
+  font-family: 'Montserrat', sans-serif;
+  line-height: 1.25;
+  scroll-behavior: smooth;
+
+  -webkit-font-smoothing  : antialiased;
+  -moz-osx-font-smoothing : grayscale;
+  -webkit-font-smoothing  : antialiased;
+  -webkit-text-size-adjust: 100%;
+  -ms-text-size-adjust    : 100%;
+}
+
+[v-cloak] {
+  display: none;
+}
+
+.btn {
+  padding: 8px 20px;
+  display: inline-block;
+  width: max-content;
+  text-transform: uppercase;
+  background-color: $black;
+  border: 1px solid $black;
+  color: $white;
+  font-size: 14px;
+  font-weight: 500;
+  border-radius: 25px;
+  text-align: center;
+  transition: all 0.2s ease-in-out;
+
+  &:hover {
+    background-color: $white;
+    color: $black;
+  }
+}

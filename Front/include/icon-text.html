@@ -1,0 +1,21 @@
+<div class="icon-text">
+  <div class="container-lg">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="icon-text__title">
+          <h2>
+            {{ contentData.home.icon_text.title }}
+          </h2>
+        </div>
+      </div>
+      <div class="col-md-4" v-for="(item, index) in contentData.home.icon_text.benefits">
+        <div class="icon-text__card">
+          <img :src="item.image" :alt="item.title">
+          <p>
+            {{ item.title }}
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
